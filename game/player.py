@@ -28,7 +28,7 @@ class Dinosaur:
         self.run_img = RUNNING_SKINS[skin_index]
         self.jump_img = JUMPING_SKINS[skin_index]
 
-    def update(self, userInput,jump_sound):
+    def update(self, userInput):
         if self.dino_duck:
             self.duck()
         elif self.dino_run:
@@ -43,12 +43,10 @@ class Dinosaur:
             self.dino_duck = False
             self.dino_run = False
             self.dino_jump = True
-            jump_sound.play()
         elif userInput[pygame.K_SPACE] and not self.dino_jump:
             self.dino_duck = False
             self.dino_run = False
             self.dino_jump = True
-            jump_sound.play()
         elif userInput[pygame.K_DOWN] and not self.dino_jump:
             self.dino_duck = True
             self.dino_run = False
