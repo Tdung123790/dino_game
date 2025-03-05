@@ -1,3 +1,4 @@
+import sys
 import pygame
 from constants import SCREEN, GAME_MUSIC, WHITE
 from game.sound_manager import SoundManager
@@ -22,7 +23,7 @@ def game_loop():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                exit()
+                sys.exit()
             if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 # Nhấn ESCAPE thì quay lại menu ban đầu
                 menu()

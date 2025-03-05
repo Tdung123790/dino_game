@@ -1,4 +1,4 @@
-import pygame
+import sys
 from constants import *
 from game.game_loop import game_loop
 from game.SkinManager import skin_manager
@@ -43,7 +43,7 @@ def choose_skin():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                exit()
+                sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:  # Trở về menu nếu nhấn ESC
                     running = False

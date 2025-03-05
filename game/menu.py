@@ -1,4 +1,4 @@
-import pygame
+import sys
 from constants import *
 from game.effects import EffectManager, draw_text_with_outline, draw_button
 from game.sound_manager import SoundManager
@@ -51,7 +51,7 @@ def menu(death_count=0, points=0):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                exit()
+                sys.exit()
             if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 # Nhấn ESCAPE thì quay lại menu ban đầu
                 menu(death_count=0, points=0)
@@ -65,7 +65,7 @@ def menu(death_count=0, points=0):
                     choose_skin()
                 if btn_3.collidepoint(event.pos):
                     pygame.quit()
-                    exit()
+                    sys.exit()
 
         pygame.display.update()
         clock.tick(60)
