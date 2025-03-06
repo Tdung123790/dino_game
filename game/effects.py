@@ -1,6 +1,6 @@
 import random
 import pygame
-
+from constants import WHITE, BROWN, DARK_ORANGE,ORANGE
 class EffectManager:
     def __init__(self):
         self.angle = 0
@@ -37,14 +37,14 @@ def draw_text_with_outline(surface, text, font_path, x, y, text_color, outline_c
     surface.blit(text_surface, text_rect.topleft)
 
 def draw_button(surface, rect, text, font, hover=False):
-    main_color = (255, 165, 0) if not hover else (255, 140, 0)  # Màu cam, sáng hơn khi hover
-    border_color = (139, 69, 19)  # Viền nâu
-    white = (255, 255, 255)
+    main_color = ORANGE if not hover else DARK_ORANGE  # Màu cam, sáng hơn khi chỉ chuột vào
+    border_color = BROWN  # Viền nâu
+
 
     pygame.draw.rect(surface, border_color, (rect.x - 8, rect.y - 8, rect.width + 16, rect.height + 16))
-    pygame.draw.rect(surface, white, (rect.x - 4, rect.y - 4, rect.width + 8, rect.height + 8))
+    pygame.draw.rect(surface, WHITE, (rect.x - 4, rect.y - 4, rect.width + 8, rect.height + 8))
     pygame.draw.rect(surface, main_color, rect)
 
-    text_surface = font.render(text, True, white)
+    text_surface = font.render(text, True, WHITE)
     text_rect = text_surface.get_rect(center=rect.center)
     surface.blit(text_surface, text_rect)
