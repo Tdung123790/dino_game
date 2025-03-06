@@ -44,7 +44,7 @@ def game_loop():
         game_manager.points += 1  # Tăng điểm mỗi frame
         if game_manager.points % 100 == 0:
             sound_manager.play_score()  # Phát âm thanh khi đạt mốc điểm ngay lập tức
-
+            game_manager.game_speed+=1
         game_manager.draw()
 
         # Hiển thị điểm
