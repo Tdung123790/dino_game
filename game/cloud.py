@@ -1,6 +1,6 @@
 from constants import *
 import random
-
+# dsach may
 class Cloud:
     def __init__(self):
         self.x = SCREEN_WIDTH + random.randint(800, 1000)

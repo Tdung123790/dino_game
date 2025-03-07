@@ -42,7 +42,8 @@ RUNNING_2 = [pygame.image.load(os.path.join(ASSETS_DIR, "Dino_2/DinoRun1.png")),
 JUMPING_2 = pygame.image.load(os.path.join(ASSETS_DIR, "Dino_2/DinoJump.png"))
 DUCKING_2 = [pygame.image.load(os.path.join(ASSETS_DIR, "Dino_2/DinoDuck1.png")),
              pygame.image.load(os.path.join(ASSETS_DIR, "Dino_2/DinoDuck2.png"))]
-#to chuc lai skin
+#to chuc lai skin, tao list quuan li=> quan li doi tuong, class chi la lop
+
 # Hình ảnh chướng ngại vật
 SMALL_CACTUS_1 = [pygame.image.load(os.path.join(ASSETS_DIR, "Cactus_1/SmallCactus1.png")),
                    pygame.image.load(os.path.join(ASSETS_DIR, "Cactus_1/SmallCactus2.png")),

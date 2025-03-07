@@ -4,7 +4,7 @@ import random
 from constants import SCREEN
 
 
-class Obstacle:
+class Obstacle: # danh sach vat can
     def __init__(self, image, type):
         self.image = image
         self.type = type
