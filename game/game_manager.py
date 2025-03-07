@@ -38,7 +38,7 @@ class GameManager:
                 self.death_count += 1
                 return False  # Chết thì quay lại menu
         return True
-
+    
     def draw(self):
         self.draw_background()
         self.cloud.draw(SCREEN)

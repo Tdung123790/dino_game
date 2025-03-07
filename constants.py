@@ -20,10 +20,6 @@ BROWN = (101, 67, 33)
 ORANGE = (255, 140, 0)
 DARK_ORANGE = (220, 80, 40)
 
-# Biến hiệu ứng
-angle = 0  # Góc xoay
-scale_factor = 1  # Hệ số phóng to thu nhỏ
-scale_direction = 1  # Hướng phóng to thu nhỏ
 
 # Đường dẫn tài nguyên
 ASSETS_DIR = "Assets"
@@ -46,7 +42,7 @@ RUNNING_2 = [pygame.image.load(os.path.join(ASSETS_DIR, "Dino_2/DinoRun1.png")),
 JUMPING_2 = pygame.image.load(os.path.join(ASSETS_DIR, "Dino_2/DinoJump.png"))
 DUCKING_2 = [pygame.image.load(os.path.join(ASSETS_DIR, "Dino_2/DinoDuck1.png")),
              pygame.image.load(os.path.join(ASSETS_DIR, "Dino_2/DinoDuck2.png"))]
-
+#to chuc lai skin
 # Hình ảnh chướng ngại vật
 SMALL_CACTUS_1 = [pygame.image.load(os.path.join(ASSETS_DIR, "Cactus_1/SmallCactus1.png")),
                    pygame.image.load(os.path.join(ASSETS_DIR, "Cactus_1/SmallCactus2.png")),

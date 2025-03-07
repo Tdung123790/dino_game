@@ -38,13 +38,14 @@ def game_loop():
 
         if not running:
             sound_manager.play_hit()
-            pygame.time.wait(500)  # Giảm delay
+            pygame.time.wait(500)
             menu(game_manager.death_count, game_manager.points)  # Gọi menu với số lần chết và điểm
 
         game_manager.points += 1  # Tăng điểm mỗi frame
         if game_manager.points % 100 == 0:
             sound_manager.play_score()  # Phát âm thanh khi đạt mốc điểm ngay lập tức
             game_manager.game_speed+=1
+
         game_manager.draw()
 
         # Hiển thị điểm
