@@ -1,11 +1,11 @@
 from constants import *
 import random
-# dsach may
+# lớp mây
 class Cloud:
-    def __init__(self):
+    def __init__(self, image):
         self.x = SCREEN_WIDTH + random.randint(800, 1000)
         self.y = random.randint(50, 100)
-        self.image = CLOUD
+        self.image = image
         self.width = self.image.get_width()
 
     def update(self, game_speed):

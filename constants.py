@@ -29,7 +29,7 @@ IMAGE_DIR = os.path.join(ASSETS_DIR, "Other")
 # Nhạc nền
 MENU_MUSIC = os.path.join(SOUND_DIR, "bg_music_menu.mp3")
 GAME_MUSIC = os.path.join(SOUND_DIR, "bg_music_game.mp3")
-
+'''
 # Hình ảnh nhân vật
 RUNNING_1 = [pygame.image.load(os.path.join(ASSETS_DIR, "Dino_1/DinoRun1.png")),
              pygame.image.load(os.path.join(ASSETS_DIR, "Dino_1/DinoRun2.png"))]
@@ -84,4 +84,4 @@ LARGE_SKINS = [LARGE_CACTUS_1, LARGE_CACTUS_2]
 BIRD_SKINS = [BIRD_1, BIRD_2]
 BG_SKINS = [BG_1, BG_2]
 
-
+'''

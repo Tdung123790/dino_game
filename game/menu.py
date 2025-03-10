@@ -2,10 +2,10 @@ import sys
 from constants import *
 from game.effects import EffectManager, draw_text_with_outline, draw_button
 from game.sound_manager import SoundManager
-
+from game.image_manager import assets
 def menu(death_count=0, points=0):
     font = pygame.font.Font("Assets/Other/PressStart2P-Regular.ttf", 25)
-    background = pygame.transform.scale(BGMENU, (1100, 600))
+    background = pygame.transform.scale(assets.backgroundsmenu, (1100, 600))
     effects = EffectManager()
     sound_manager = SoundManager()
     sound_manager.play_music("bg_music_menu.mp3")  # Phát nhạc menu
@@ -42,12 +42,12 @@ def menu(death_count=0, points=0):
             draw_button(SCREEN, btn_1, "Restart", font, btn_1.collidepoint(pygame.mouse.get_pos()))
             draw_button(SCREEN, btn_3, "Quit Game", font, btn_3.collidepoint(pygame.mouse.get_pos()))
 
-        # Khủng long xoay
-        dino_rect = RUNNING_1[0].get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 3))
-        rotated_dino = pygame.transform.rotate(RUNNING_1[0], effects.update_rotation())
+        ''''# Khủng long xoay
+        dino_rect = assets.running_skins[0].get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 3))
+        rotated_dino = pygame.transform.rotate(assets.running_skins[0], effects.update_rotation())
         new_rect = rotated_dino.get_rect(center=dino_rect.center)
         SCREEN.blit(rotated_dino, new_rect.topleft)
-
+'''
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
