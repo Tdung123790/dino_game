@@ -1,3 +1,4 @@
+
 class SkinManager:
     def __init__(self):
         self.selected_skin_index = 0  # Skin mặc định
@@ -12,3 +13,4 @@ class SkinManager:
 
 
 skin_manager=SkinManager()
+

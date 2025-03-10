@@ -1,5 +1,5 @@
 import pygame
-from constants import RUNNING_SKINS, JUMPING_SKINS, DUCKING_SKINS
+from game.image_manager import assets
 
 class Dinosaur:
     X_POS = 80
@@ -24,9 +24,9 @@ class Dinosaur:
     def update_skin(self, skin_index):
         """Cập nhật hình ảnh khủng long theo skin đã chọn"""
         self.skin_index = skin_index
-        self.duck_img = DUCKING_SKINS[skin_index]
-        self.run_img = RUNNING_SKINS[skin_index]
-        self.jump_img = JUMPING_SKINS[skin_index]
+        self.duck_img = assets.ducking_skins[skin_index]
+        self.run_img = assets.running_skins[skin_index]
+        self.jump_img = assets.jumping_skins[skin_index]
 
     def update(self, userInput):
         if self.dino_duck:
