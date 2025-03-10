@@ -68,9 +68,10 @@ class AssetManager:
         for folder in sorted(os.listdir(ASSETS_DIR)):
             folder_path = os.path.join(ASSETS_DIR, folder)
             if os.path.isdir(folder_path) and folder.startswith("Track"):
-                for
-                self.track_skins.append(pygame.image.load(os.path.join(folder_path, "Track1.png")))
-
+                for file_name in sorted(os.listdir(folder_path)):  # Duyệt toàn bộ file
+                    if file_name.lower().endswith((".png", ".jpg", ".jpeg")):  # Chỉ load ảnh
+                        file_path = os.path.join(folder_path, file_name)
+                        self.track_skins.append(pygame.image.load(file_path))
     def load_backgrounds(self):
         """Load hình nền"""
         self.cloud = pygame.image.load(os.path.join(IMAGE_DIR, "Cloud.png"))

@@ -11,6 +11,7 @@ class GameManager:
         self.game_speed = 20
         self.death_count = 0
         self.obstacles = []
+        self.points=0
         self.player = Dinosaur(skin_manager.get_skin())
         self.x_pos_bg = 0
         self.y_pos_bg = 380

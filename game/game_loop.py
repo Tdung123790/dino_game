@@ -5,6 +5,7 @@ from game.sound_manager import SoundManager
 from game.game_manager import GameManager
 from game.menu import menu
 from game.SkinManager import skin_manager
+#from game.gamestat import
 def game_loop():
 
     sound_manager = SoundManager()
@@ -41,11 +42,11 @@ def game_loop():
             pygame.time.wait(500)
             menu(game_manager.death_count, game_manager.points)  # Gọi menu với số lần chết và điểm
 
-        '''game_manager.points += 1  # Tăng điểm mỗi frame
+        game_manager.points += 1  # Tăng điểm mỗi frame
         if game_manager.points % 100 == 0:
             sound_manager.play_score()  # Phát âm thanh khi đạt mốc điểm ngay lập tức
             game_manager.game_speed+=1
-'''
+
         game_manager.draw()
 
         # Hiển thị điểm
