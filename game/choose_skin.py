@@ -3,7 +3,7 @@ from constants import *
 from game.game_loop import game_loop
 from game.SkinManager import skin_manager
 from game.sound_manager import SoundManager
-from game.effects import *
+from game.effects import EffectManager
 from game.image_manager import assets
 def choose_skin():
     current_skin_index = skin_manager.get_skin()  # Lấy skin hiện tại  # Lưu trạng thái skin hiện tại
@@ -26,9 +26,9 @@ def choose_skin():
         btn_left = pygame.Rect(300, SCREEN_HEIGHT // 2 - 25, 50, 50)  # Nút trái
         btn_right = pygame.Rect(750, SCREEN_HEIGHT // 2 - 25, 50, 50)  # Nút phải
         btn_select = pygame.Rect(450, SCREEN_HEIGHT // 2 + 75, 200, 50)
-        draw_button(SCREEN, btn_left, "←", font, btn_left.collidepoint(pygame.mouse.get_pos()))
-        draw_button(SCREEN, btn_right, "→", font, btn_right.collidepoint(pygame.mouse.get_pos()))
-        draw_button(SCREEN, btn_select, "Select", font, btn_select.collidepoint(pygame.mouse.get_pos()))
+        EffectManager.draw_button(SCREEN, btn_left, "←", font, btn_left.collidepoint(pygame.mouse.get_pos()))
+        EffectManager.draw_button(SCREEN, btn_right, "→", font, btn_right.collidepoint(pygame.mouse.get_pos()))
+        EffectManager.draw_button(SCREEN, btn_select, "Select", font, btn_select.collidepoint(pygame.mouse.get_pos()))
         # Hiển thị hướng dẫn
         instruction_text = font.render("← / → to change, ESC to return", True, BLACK)
         SCREEN.blit(instruction_text, (SCREEN_WIDTH // 2 - instruction_text.get_width() // 2, SCREEN_HEIGHT - 100))

@@ -3,7 +3,7 @@ import sys
 
 from constants import SCREEN, SCREEN_WIDTH, BLACK, SCREEN_HEIGHT, DARK_ORANGE, fontldb
 
-from game.effects import draw_button
+from game.effects import EffectManager
 from game.image_manager import assets
 from game.leaderboard_manager import LeaderboardManager  # Lớp trung gian quản lý điểm số
 
@@ -31,10 +31,8 @@ def show_leaderboard():
             y_offset += 40
 
         # Nút "Back" để quay lại menu
-        btn_back = pygame.Rect(325, SCREEN_HEIGHT - 100, 200, 50)
-        btn_save= pygame.Rect(575, SCREEN_HEIGHT - 100, 200, 50)
-        draw_button(SCREEN, btn_back, "Back", fontldb, btn_back.collidepoint(pygame.mouse.get_pos()))
-        draw_button(SCREEN, btn_save, "Save", fontldb, btn_save.collidepoint(pygame.mouse.get_pos()))
+        btn_back = pygame.Rect(450, SCREEN_HEIGHT - 100, 200, 50)
+        EffectManager.draw_button(SCREEN, btn_back, "Back", fontldb, btn_back.collidepoint(pygame.mouse.get_pos()))
         pygame.display.update()
 
         # Xử lý sự kiện
@@ -48,6 +46,5 @@ def show_leaderboard():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if btn_back.collidepoint(event.pos):
                     running = False
-                if btn_save.collidepoint(event.pos):
-                    leaderboard_manager.save_data()
+
 

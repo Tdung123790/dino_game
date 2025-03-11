@@ -17,6 +17,7 @@ class LeaderboardManager:
                 self.players = [PlayerData.from_dict(entry) for entry in data]  # Chuyển dict thành PlayerData
         except (FileNotFoundError, json.JSONDecodeError):
             self.players = []
+
     def save_data(self):
         """Lưu danh sách PlayerData vào file JSON"""
         with open(self.DATA_FILE, "w") as file:
