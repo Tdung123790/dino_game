@@ -1,10 +1,14 @@
 import pygame
 import os
 
-# Lấy thư mục gốc của dự án: Thư mục chứa cả game và Assets
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ASSETS_DIR = os.path.join(BASE_DIR, "Assets")
-IMAGE_DIR = os.path.join(ASSETS_DIR, "Other")  # Giả sử hình nền nằm trong Assets/Other
+import os
+
+# Lấy thư mục hiện tại của file này
+CURRENT_DIR = os.path.dirname(__file__)
+
+# Định nghĩa đường dẫn tương đối
+ASSETS_DIR = os.path.relpath(os.path.join(CURRENT_DIR, "..", "Assets"))
+IMAGE_DIR = os.path.join(ASSETS_DIR, "Other")
 
 class AssetManager:
     def __init__(self):

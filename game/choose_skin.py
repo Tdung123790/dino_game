@@ -6,8 +6,6 @@ from game.sound_manager import SoundManager
 from game.effects import *
 from game.image_manager import assets
 def choose_skin():
-
-    font = pygame.font.Font("Assets/Other/PressStart2P-Regular.ttf", 25)
     current_skin_index = skin_manager.get_skin()  # Lấy skin hiện tại  # Lưu trạng thái skin hiện tại
     sound_manager = SoundManager()
     sound_manager.play_music("bg_music_menu.mp3")  # Phát nhạc menu khi vào giao diện chọn skin

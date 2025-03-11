@@ -1,11 +1,11 @@
 import pygame
 import sys
 from game.leaderboard_manager import LeaderboardManager
-from constants import SCREEN, ORANGE, DARK_ORANGE, WHITE, BLACK
+from constants import SCREEN, ORANGE, DARK_ORANGE, WHITE, BLACK,font
 from game.effects import draw_button
 from game.image_manager import assets
 pygame.init()
-font = pygame.font.Font("Assets/Other/PressStart2P-Regular.ttf", 25)
+
 
 
 def saving_screen(score):

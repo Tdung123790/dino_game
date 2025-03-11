@@ -1,14 +1,14 @@
 import pygame
 import sys
 
-from constants import SCREEN, SCREEN_WIDTH, BLACK, SCREEN_HEIGHT, DARK_ORANGE
+from constants import SCREEN, SCREEN_WIDTH, BLACK, SCREEN_HEIGHT, DARK_ORANGE, fontldb
+
 from game.effects import draw_button
 from game.image_manager import assets
 from game.leaderboard_manager import LeaderboardManager  # Lớp trung gian quản lý điểm số
 
 def show_leaderboard():
     """ Hiển thị bảng xếp hạng """
-    font = pygame.font.Font("Assets/Other/PressStart2P-Regular.ttf", 30)
     background = pygame.transform.scale(assets.backgroundsmenu, (1100, 600))
     leaderboard_manager = LeaderboardManager()  # Dùng lớp trung gian để lấy dữ liệu
 
@@ -17,7 +17,7 @@ def show_leaderboard():
         SCREEN.blit(background, (0, 0))
 
         # Hiển thị tiêu đề
-        title_text = font.render("Leaderboard", True, DARK_ORANGE)
+        title_text = fontldb.render("Leaderboard", True, DARK_ORANGE)
         SCREEN.blit(title_text, (SCREEN_WIDTH // 2 - title_text.get_width() // 2, 50))
 
         # Lấy dữ liệu bảng xếp hạng
@@ -26,15 +26,15 @@ def show_leaderboard():
         # Hiển thị danh sách điểm số
         y_offset = 120
         for i, entry in enumerate(top_scores[:10]):  # Chỉ hiển thị top 10
-            score_text = font.render(f"{i+1}. {entry['name']} - {entry['score']}", True, BLACK)
+            score_text = fontldb.render(f"{i+1}. {entry['name']} - {entry['score']}", True, BLACK)
             SCREEN.blit(score_text, (SCREEN_WIDTH // 2 - score_text.get_width() // 2, y_offset))
             y_offset += 40
 
         # Nút "Back" để quay lại menu
         btn_back = pygame.Rect(325, SCREEN_HEIGHT - 100, 200, 50)
         btn_save= pygame.Rect(575, SCREEN_HEIGHT - 100, 200, 50)
-        draw_button(SCREEN, btn_back, "Back", font, btn_back.collidepoint(pygame.mouse.get_pos()))
-        draw_button(SCREEN, btn_save, "Save", font, btn_save.collidepoint(pygame.mouse.get_pos()))
+        draw_button(SCREEN, btn_back, "Back", fontldb, btn_back.collidepoint(pygame.mouse.get_pos()))
+        draw_button(SCREEN, btn_save, "Save", fontldb, btn_save.collidepoint(pygame.mouse.get_pos()))
         pygame.display.update()
 
         # Xử lý sự kiện

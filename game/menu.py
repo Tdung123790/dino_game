@@ -5,7 +5,6 @@ from game.sound_manager import SoundManager
 from game.image_manager import assets
 
 def menu(death_count=0, points=0):
-    font = pygame.font.Font("Assets/Other/PressStart2P-Regular.ttf", 25)
     background = pygame.transform.scale(assets.backgroundsmenu, (1100, 600))
     effects = EffectManager()
     sound_manager = SoundManager()
