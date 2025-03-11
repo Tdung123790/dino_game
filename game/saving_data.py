@@ -2,7 +2,7 @@ import pygame
 import sys
 from game.leaderboard_manager import LeaderboardManager
 from constants import SCREEN, ORANGE, DARK_ORANGE, WHITE, BLACK,font
-from game.effects import draw_button
+from game.effects import EffectManager
 from game.image_manager import assets
 pygame.init()
 
@@ -36,7 +36,7 @@ def saving_screen(score):
         SCREEN.blit(text_surface, (input_box.x + 10, input_box.y + 10))
 
         # Hiển thị nút Save
-        draw_button(SCREEN,save_button,"Save",font,save_button.collidepoint(pygame.mouse.get_pos()))
+        EffectManager.draw_button(SCREEN,save_button,"Save",font,save_button.collidepoint(pygame.mouse.get_pos()))
         # Hiển thị lỗi
         if error_message:
             error_text = font.render(error_message, True, WHITE)

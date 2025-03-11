@@ -1,8 +1,6 @@
 import pygame
 import os
 
-import os
-
 # Lấy thư mục hiện tại của file này
 CURRENT_DIR = os.path.dirname(__file__)
 
