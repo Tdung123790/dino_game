@@ -19,12 +19,13 @@ BLACK = (0, 0, 0)
 BROWN = (101, 67, 33)
 ORANGE = (255, 140, 0)
 DARK_ORANGE = (220, 80, 40)
-
-
 # Đường dẫn tài nguyên
-ASSETS_DIR = "Assets"
-SOUND_DIR = os.path.join(ASSETS_DIR, "Sound")
+ASSETS_DIR = "./Assets"
+SOUND_DIR = f"{ASSETS_DIR}/Sound"
 
 # Nhạc nền
-MENU_MUSIC = os.path.join(SOUND_DIR, "bg_music_menu.mp3")
-GAME_MUSIC = os.path.join(SOUND_DIR, "bg_music_game.mp3")
+MENU_MUSIC = f"{SOUND_DIR}/bg_music_menu.mp3"
+GAME_MUSIC = f"{SOUND_DIR}/bg_music_game.mp3"
+#Font
+font = pygame.font.Font(f"{ASSETS_DIR}/Other/PressStart2P-Regular.ttf", 25)
+fontldb = pygame.font.Font(f"{ASSETS_DIR}/Other/PressStart2P-Regular.ttf", 30)

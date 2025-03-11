@@ -1,11 +1,10 @@
 import sys
 import pygame
-from constants import SCREEN, GAME_MUSIC, WHITE
+from constants import SCREEN, GAME_MUSIC, WHITE, font
 from game.sound_manager import SoundManager
 from game.game_manager import GameManager
 from game.menu import menu
 from game.SkinManager import skin_manager
-#from game.gamestat import
 def game_loop():
 
     sound_manager = SoundManager()
@@ -15,7 +14,6 @@ def game_loop():
     game_manager.player.update_skin(skin_manager.get_skin())
 
     clock = pygame.time.Clock()
-    font = pygame.font.Font("Assets/Other/PressStart2P-Regular.ttf", 25)
 
     running = True
     while running:
