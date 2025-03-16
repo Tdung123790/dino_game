@@ -1,15 +1,13 @@
 import sys
 import pygame
-from constants import SCREEN, GAME_MUSIC, WHITE, font
-from game.sound_manager import SoundManager
-from game.game_manager import GameManager
-from game.menu import menu
-from game.SkinManager import skin_manager
+from dino_game.constants import SCREEN, WHITE, font
+from dino_game.game.sound_manager import SoundManager
+from dino_game.game.game_manager import GameManager
+from dino_game.game.menu import menu
+from dino_game.game.SkinManager import skin_manager
 def game_loop():
 
     sound_manager = SoundManager()
-    sound_manager.play_music(GAME_MUSIC)
-
     game_manager = GameManager()
     game_manager.player.update_skin(skin_manager.get_skin())
 
@@ -21,34 +19,25 @@ def game_loop():
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                sound_manager.stop_music()
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 # Nhấn ESCAPE thì quay lại menu ban đầu
+                sound_manager.stop_music()
                 menu()
                 return
 
         userInput = pygame.key.get_pressed()
-        if userInput[pygame.K_SPACE] or userInput[pygame.K_UP]:
-            if not game_manager.player.dino_jump:  # Chỉ phát âm thanh nếu chưa nhảy
-                sound_manager.play_jump()
-
         running = game_manager.update(userInput)
-
         if not running:
-            sound_manager.play_hit()
-            pygame.time.wait(500)
-            menu(game_manager.death_count, game_manager.points)  # Gọi menu với số lần chết và điểm
+            menu(game_manager.death_count, game_manager.get_score())  # Gọi menu với số lần chết và điểm
 
-        game_manager.points += 1  # Tăng điểm mỗi frame
-        if game_manager.points % 100 == 0:
-            sound_manager.play_score()  # Phát âm thanh khi đạt mốc điểm ngay lập tức
-            game_manager.game_speed+=1
 
         game_manager.draw()
 
         # Hiển thị điểm
-        score_text = font.render(f"Points: {game_manager.points}", True, (0, 0, 0))
+        score_text = font.render(f"Points: {game_manager.get_score()}", True, (0, 0, 0))
         SCREEN.blit(score_text, (750, 40))
 
         pygame.display.update()

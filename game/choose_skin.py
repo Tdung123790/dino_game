@@ -1,14 +1,11 @@
 import sys
-from constants import *
-from game.game_loop import game_loop
-from game.SkinManager import skin_manager
-from game.sound_manager import SoundManager
-from game.effects import EffectManager
-from game.image_manager import assets
+from dino_game.constants import *
+from dino_game.game.game_loop import game_loop
+from dino_game.game.SkinManager import skin_manager
+from dino_game.game.effects import EffectManager
+from dino_game.game.image_manager import assets
 def choose_skin():
     current_skin_index = skin_manager.get_skin()  # Lấy skin hiện tại  # Lưu trạng thái skin hiện tại
-    sound_manager = SoundManager()
-    sound_manager.play_music("bg_music_menu.mp3")  # Phát nhạc menu khi vào giao diện chọn skin
 
     running = True
     while running:
@@ -44,8 +41,7 @@ def choose_skin():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:  # Trở về menu nếu nhấn ESC
                     running = False
-                    from game.menu import menu
-                    menu()
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if btn_left.collidepoint(event.pos):  # Chọn skin trước
                     current_skin_index = (current_skin_index - 1) % len(assets.running_skins)

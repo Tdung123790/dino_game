@@ -76,4 +76,7 @@ class Dinosaur:
 
     def draw(self, SCREEN):
         SCREEN.blit(self.image, (self.dino_rect.x, self.dino_rect.y))
+    def get_rect(self):
+        """Trả về hình chữ nhật va chạm"""
+        return self.dino_rect
 

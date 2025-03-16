@@ -1,7 +1,7 @@
 import random
 
 
-from constants import SCREEN
+from dino_game.constants import SCREEN
 
 
 class Obstacle: # danh sach vat can
@@ -18,6 +18,10 @@ class Obstacle: # danh sach vat can
 
     def draw(self, SCREEN):
         SCREEN.blit(self.image[self.type], self.rect)
+
+    def get_rect(self):
+        """Trả về hình chữ nhật va chạm"""
+        return self.rect
 
 
 class SmallCactus(Obstacle):

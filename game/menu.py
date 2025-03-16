@@ -1,14 +1,15 @@
 import sys
-from constants import *
-from game.effects import EffectManager
-from game.sound_manager import SoundManager
-from game.image_manager import assets
+from dino_game.constants import *
+from dino_game.game.effects import EffectManager
+from dino_game.game.gdsaving_data import DialogNhapTen
+from dino_game.game.sound_manager import SoundManager
+from dino_game.game.image_manager import assets
 
 def menu(death_count=0, points=0):
     background = pygame.transform.scale(assets.backgroundsmenu, (1100, 600))
     effects = EffectManager()
     sound_manager = SoundManager()
-    sound_manager.play_music("bg_music_menu.mp3")  # Phát nhạc menu
+    sound_manager.play_music("menu")
 
 
     while True:
@@ -58,19 +59,23 @@ def menu(death_count=0, points=0):
                 return
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 if btn_1.collidepoint(event.pos):
-                    from game.game_loop import game_loop
+                    from dino_game.game.game_loop import game_loop
                     game_loop()
                 if death_count == 0 and btn_2.collidepoint(event.pos):
-                    from game.choose_skin import choose_skin
+                    from dino_game.game.choose_skin import choose_skin
                     choose_skin()
                 if btn_3.collidepoint(event.pos):
                     pygame.quit()
                     sys.exit()
                 if death_count==0 and btn_ldb.collidepoint(event.pos):
-                    from game.Leaderboard import show_leaderboard
+                    from dino_game.game.Leaderboard import show_leaderboard
                     show_leaderboard()
                 if death_count>0 and btn_save.collidepoint(event.pos):
-                    from game.saving_data import saving_screen
-                    saving_screen(points)
+                    from PyQt6.QtWidgets import QApplication
+                    app = QApplication([])
+                    dialog = DialogNhapTen(points)
+                    dialog.exec()  # PyQt6
+                    # from dino_game.game.saving_data import saving_screen
+                    #saving_screen(points) #dùng pygame
         pygame.display.update()
         clock.tick(60)
