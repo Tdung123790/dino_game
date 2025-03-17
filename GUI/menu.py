@@ -1,7 +1,7 @@
 import sys
-from dino_game.constants import *
+from dino_game.config.constants import *
 from dino_game.game.effects import EffectManager
-from dino_game.game.gdsaving_data import DialogNhapTen
+from dino_game.GUI.gdsaving_data import DialogNhapTen
 from dino_game.game.sound_manager import SoundManager
 from dino_game.game.image_manager import assets
 
@@ -62,13 +62,13 @@ def menu(death_count=0, points=0):
                     from dino_game.game.game_loop import game_loop
                     game_loop()
                 if death_count == 0 and btn_2.collidepoint(event.pos):
-                    from dino_game.game.choose_skin import choose_skin
+                    from dino_game.GUI.choose_skin import choose_skin
                     choose_skin()
                 if btn_3.collidepoint(event.pos):
                     pygame.quit()
                     sys.exit()
                 if death_count==0 and btn_ldb.collidepoint(event.pos):
-                    from dino_game.game.Leaderboard import show_leaderboard
+                    from dino_game.GUI.Leaderboard import show_leaderboard
                     show_leaderboard()
                 if death_count>0 and btn_save.collidepoint(event.pos):
                     from PyQt6.QtWidgets import QApplication

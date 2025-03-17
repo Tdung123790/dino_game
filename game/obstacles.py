@@ -1,9 +1,5 @@
 import random
 
-
-from dino_game.constants import SCREEN
-
-
 class Obstacle: # danh sach vat can
     def __init__(self, image, type):
         self.image = image

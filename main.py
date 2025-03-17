@@ -1,4 +1,4 @@
-from game.menu import menu
+from dino_game.GUI.menu import menu
 
 if __name__ == "__main__":
     menu()

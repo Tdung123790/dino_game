@@ -1,6 +1,6 @@
 import random
 import pygame
-from dino_game.constants import WHITE, BROWN, DARK_ORANGE,ORANGE
+from dino_game.config.constants import WHITE, BROWN, DARK_ORANGE,ORANGE
 class EffectManager:
     def __init__(self):
         self.angle = 0
