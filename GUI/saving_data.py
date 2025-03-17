@@ -1,7 +1,7 @@
 import pygame
 import sys
-from dino_game.game.leaderboard_manager import LeaderboardManager
-from dino_game.constants import SCREEN, ORANGE, DARK_ORANGE, WHITE, BLACK,font
+from dino_game.data.leaderboard_manager import LeaderboardManager
+from dino_game.config.constants import SCREEN, ORANGE, DARK_ORANGE, WHITE, BLACK,font
 from dino_game.game.effects import EffectManager
 from dino_game.game.image_manager import assets
 pygame.init()

@@ -1,5 +1,5 @@
 import pygame
-from game.image_manager import assets
+from dino_game.game.image_manager import assets
 
 class Dinosaur:
     X_POS = 80

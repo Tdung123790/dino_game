@@ -3,7 +3,7 @@ import random
 from dino_game.game.player import Dinosaur
 from dino_game.game.obstacles import SmallCactus, LargeCactus, Bird
 from dino_game.game.cloud import Cloud
-from dino_game.constants import SCREEN
+from dino_game.config.constants import SCREEN
 from dino_game.game.SkinManager import skin_manager
 from dino_game.game.image_manager import assets
 from dino_game.game.sound_manager import SoundManager

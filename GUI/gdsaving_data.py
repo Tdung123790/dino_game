@@ -1,8 +1,8 @@
 from PyQt6.QtWidgets import QDialog, QMessageBox, QTableWidgetItem, QFileDialog
 
 from PyQt6.QtWidgets import QDialog, QMessageBox
-from dino_game.game.leaderboard_manager import LeaderboardManager  # Quản lý bảng điểm
-from dino_game.game.saving_data2 import Ui_Dialog  # UI của PyQt6
+from dino_game.data.leaderboard_manager import LeaderboardManager  # Quản lý bảng điểm
+from dino_game.GUI.saving_data2 import Ui_Dialog  # UI của PyQt6
 
 class DialogNhapTen(QDialog):
     def __init__(self, score):

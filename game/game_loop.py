@@ -1,9 +1,9 @@
 import sys
 import pygame
-from dino_game.constants import SCREEN, WHITE, font
+from dino_game.config.constants import SCREEN, WHITE, font
 from dino_game.game.sound_manager import SoundManager
 from dino_game.game.game_manager import GameManager
-from dino_game.game.menu import menu
+from dino_game.GUI.menu import menu
 from dino_game.game.SkinManager import skin_manager
 def game_loop():
 

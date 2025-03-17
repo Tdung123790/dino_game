@@ -1,6 +1,6 @@
 import pygame
 import os
-from dino_game.constants import SOUND_DIR
+from dino_game.config.constants import SOUND_DIR
 pygame.mixer.pre_init(44100, -16, 2, 512)  # Giảm buffer để giảm delay
 pygame.init()
 pygame.mixer.init()

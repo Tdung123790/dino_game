@@ -1,5 +1,5 @@
 import json
-from dino_game.game.player_data import PlayerData
+from dino_game.data.player_data import PlayerData
 
 class LeaderboardManager:
     DATA_FILE = "leaderboard.json"

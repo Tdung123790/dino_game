@@ -1,4 +1,4 @@
-from dino_game.constants import *
+from dino_game.config.constants import *
 import random
 # lớp mây
 class Cloud:
