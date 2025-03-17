@@ -1,11 +1,11 @@
 import pygame
 import sys
 
-from constants import SCREEN, SCREEN_WIDTH, BLACK, SCREEN_HEIGHT, DARK_ORANGE, fontldb
+from dino_game.constants import SCREEN, SCREEN_WIDTH, BLACK, SCREEN_HEIGHT, DARK_ORANGE, fontldb
 
-from game.effects import EffectManager
-from game.image_manager import assets
-from game.leaderboard_manager import LeaderboardManager  # Lớp trung gian quản lý điểm số
+from dino_game.game.effects import EffectManager
+from dino_game.game.image_manager import assets
+from dino_game.game.leaderboard_manager import LeaderboardManager  # Lớp trung gian quản lý điểm số
 
 def show_leaderboard():
     """ Hiển thị bảng xếp hạng """

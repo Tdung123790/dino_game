@@ -1,11 +1,14 @@
 import pygame
 import random
-from game.player import Dinosaur
-from game.obstacles import SmallCactus, LargeCactus, Bird
-from game.cloud import Cloud
-from constants import SCREEN
-from game.SkinManager import skin_manager
-from game.image_manager import assets
+from dino_game.game.player import Dinosaur
+from dino_game.game.obstacles import SmallCactus, LargeCactus, Bird
+from dino_game.game.cloud import Cloud
+from dino_game.constants import SCREEN
+from dino_game.game.SkinManager import skin_manager
+from dino_game.game.image_manager import assets
+from dino_game.game.sound_manager import SoundManager
+
+
 class GameManager:
     def __init__(self):
         self.game_speed = 20
@@ -15,11 +18,25 @@ class GameManager:
         self.player = Dinosaur(skin_manager.get_skin())
         self.x_pos_bg = 0
         self.y_pos_bg = 380
-        cloud_image = assets.cloud
-        self.cloud = Cloud(cloud_image)
+        self.cloud = Cloud(assets.cloud)
+        self.sound_manager=SoundManager()
+        self.sound_manager.play_music("game")
     def update(self, userInput):
-        self.player.update(userInput)
+        if userInput[pygame.K_SPACE] or userInput[pygame.K_UP]:
+            if  not self.player.dino_jump:
+                self.sound_manager.play_jump()
 
+        self.player.update(userInput)
+        self.update_obstacles()
+        self.increase_score()
+        if self.check_collision():
+            pygame.time.delay(1000)
+            self.sound_manager.play_hit()
+            self.death_count += 1
+            return False  # Trò chơi kết thúc
+        return True
+
+    def update_obstacles(self):
         # Sinh chướng ngại vật ngẫu nhiên
         if len(self.obstacles) == 0:
             obstacle_choice = random.randint(0, 2)
@@ -34,12 +51,27 @@ class GameManager:
         for obstacle in self.obstacles:
             obstacle.update(self.game_speed, self.obstacles)
 
-            if self.player.dino_rect.colliderect(obstacle.rect):
+    def check_collision(self):
+        """Kiểm tra va chạm thủ công"""
+        player_rect = self.player.get_rect()
+        for obstacle in self.obstacles:
+            obs_rect = obstacle.get_rect()
 
-                pygame.time.delay(1000)
-                self.death_count += 1
-                return False  # Chết thì quay lại menu
-        return True
+            if (player_rect.right > obs_rect.left and player_rect.left < obs_rect.right and
+                    player_rect.bottom > obs_rect.top and player_rect.top < obs_rect.bottom):
+                return True  # Có va chạm
+        return False
+
+    def increase_score(self):
+        """Tăng điểm số và tăng tốc độ game"""
+        self.points += 1  # Cộng 1 điểm mỗi frame
+        if self.points % 100 == 0:  # Khi đạt mốc 100 điểm
+            self.sound_manager.play_score()  # Phát âm thanh
+            self.game_speed += 1  # Tăng tốc độ game
+
+    def get_score(self):
+        """Trả về điểm số hiện tại"""
+        return self.points
 
     def draw(self):
         self.draw_background()

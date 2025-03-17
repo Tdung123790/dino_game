@@ -1,15 +1,14 @@
 import pygame
 import sys
-from game.leaderboard_manager import LeaderboardManager
-from constants import SCREEN, ORANGE, DARK_ORANGE, WHITE, BLACK,font
-from game.effects import EffectManager
-from game.image_manager import assets
+from dino_game.game.leaderboard_manager import LeaderboardManager
+from dino_game.constants import SCREEN, ORANGE, DARK_ORANGE, WHITE, BLACK,font
+from dino_game.game.effects import EffectManager
+from dino_game.game.image_manager import assets
 pygame.init()
 
 
-
 def saving_screen(score):
-    """Hiển thị màn hình khi người chơi thua"""
+    """Hiển thị màn hình khi chọn lưu"""
     leaderboard_manager = LeaderboardManager()
     player_name = ""
     save_button = pygame.Rect(475, 400, 200, 50)  # Nút "Save"
@@ -40,7 +39,7 @@ def saving_screen(score):
         # Hiển thị lỗi
         if error_message:
             error_text = font.render(error_message, True, WHITE)
-            SCREEN.blit(error_text, (200, 350))  # 🔹 Luôn vẽ lại mỗi vòng lặp
+            SCREEN.blit(error_text, (200, 350))
 
         pygame.display.flip()
 
@@ -60,7 +59,7 @@ def saving_screen(score):
 
                 if save_button.collidepoint(event.pos) and player_name.strip():  # Nhấn Save
                     if leaderboard_manager.is_name_taken(player_name):  # Kiểm tra tên trùng
-                        error_message = "Name already taken! Choose another."  # 🔹 Cập nhật `str`
+                        error_message = "Name already taken! Choose another."
                     else:
                         leaderboard_manager.add_score(player_name, score)  # Lưu điểm
                         running = False  # Thoát về menu sau khi lưu
@@ -69,7 +68,7 @@ def saving_screen(score):
                     if event.key == pygame.K_RETURN:  # Nhấn Enter để lưu
                         if player_name.strip():
                             if leaderboard_manager.is_name_taken(player_name):  # Kiểm tra tên trùng
-                                error_message = "Name already taken! Choose another."  # 🔹 Cập nhật `str`
+                                error_message = "Name already taken! Choose another."
                             else:
                                 leaderboard_manager.add_score(player_name, score)
                                 running = False
