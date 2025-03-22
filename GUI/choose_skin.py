@@ -1,6 +1,6 @@
 import sys
 from dino_game.config.constants import *
-from dino_game.game.game_loop import game_loop
+from dino_game.GUI.game_loop import game_loop
 from dino_game.game.SkinManager import skin_manager
 from dino_game.game.effects import EffectManager
 from dino_game.game.image_manager import assets

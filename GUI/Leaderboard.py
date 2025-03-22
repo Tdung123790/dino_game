@@ -35,7 +35,6 @@ def show_leaderboard():
         EffectManager.draw_button(SCREEN, btn_back, "Back", fontldb, btn_back.collidepoint(pygame.mouse.get_pos()))
         pygame.display.update()
 
-        # Xử lý sự kiện
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
