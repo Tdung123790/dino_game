@@ -59,7 +59,7 @@ def menu(death_count=0, points=0):
                 return
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 if btn_1.collidepoint(event.pos):
-                    from dino_game.game.game_loop import game_loop
+                    from dino_game.GUI.game_loop import game_loop
                     game_loop()
                 if death_count == 0 and btn_2.collidepoint(event.pos):
                     from dino_game.GUI.choose_skin import choose_skin

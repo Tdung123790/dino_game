@@ -1,7 +1,6 @@
 
 
 import pygame
-import os
 
 # Khởi tạo pygame
 pygame.init()

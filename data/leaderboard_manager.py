@@ -2,11 +2,11 @@ import json
 from dino_game.data.player_data import PlayerData
 
 class LeaderboardManager:
-    DATA_FILE = "leaderboard.json"
 
     def __init__(self):
         """Khởi tạo bảng xếp hạng, tự động load dữ liệu"""
         self.players = []  # Danh sách PlayerData
+        self.DATA_FILE = "leaderboard.json"
         self.load_data()
 
     def load_data(self):

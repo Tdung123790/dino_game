@@ -12,8 +12,6 @@ class SoundManager:
 
         self.hit_sound = pygame.mixer.Sound(os.path.join(SOUND_DIR, "dead_sound.wav"))
         self.score_sound = pygame.mixer.Sound(os.path.join(SOUND_DIR, "point_get_sound.wav"))
-        self.MENU_MUSIC = f"{SOUND_DIR}/bg_music_menu.mp3"
-        self.GAME_MUSIC = f"{SOUND_DIR}/bg_music_game.mp3"
         # Nhạc nền cho menu & game
         self.music_files = {
             "menu": f"{SOUND_DIR}/bg_music_menu.mp3",
