@@ -7,9 +7,9 @@ class Dinosaur:
     Y_POS_DUCK = 340
     JUMP_VEL = 8.5
 
-    def __init__(self, skin_index=0):  # Thêm skin_index để chọn skin ban đầu
+    def __init__(self, skin_index=0):
         self.skin_index = skin_index
-        self.update_skin(skin_index)  # Cập nhật hình ảnh theo skin
+        self.update_skin(skin_index)
 
         self.dino_duck = False
         self.dino_run = True
@@ -22,7 +22,6 @@ class Dinosaur:
         self.dino_rect.y = self.Y_POS
 
     def update_skin(self, skin_index):
-        """Cập nhật hình ảnh khủng long theo skin đã chọn"""
         self.skin_index = skin_index
         self.duck_img = assets.ducking_skins[skin_index]
         self.run_img = assets.running_skins[skin_index]
@@ -77,6 +76,5 @@ class Dinosaur:
     def draw(self, SCREEN):
         SCREEN.blit(self.image, (self.dino_rect.x, self.dino_rect.y))
     def get_rect(self):
-        """Trả về hình chữ nhật va chạm"""
         return self.dino_rect
 

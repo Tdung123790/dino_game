@@ -23,7 +23,6 @@ def game_loop():
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                # Nhấn ESCAPE thì quay lại menu ban đầu
                 sound_manager.stop_music()
                 menu()
                 return
@@ -31,16 +30,15 @@ def game_loop():
         userInput = pygame.key.get_pressed()
         running = game_manager.update(userInput)
         if not running:
-            menu(game_manager.death_count, game_manager.get_score())  # Gọi menu với số lần chết và điểm
+            menu(game_manager.death_count, game_manager.get_score())
 
 
         game_manager.draw()
 
-        # Hiển thị điểm
         score_text = font.render(f"Points: {game_manager.get_score()}", True, (0, 0, 0))
         SCREEN.blit(score_text, (750, 40))
 
         pygame.display.update()
-        clock.tick(30)  # Giữ tốc độ khung hình ổn định
+        clock.tick(30)
 
 

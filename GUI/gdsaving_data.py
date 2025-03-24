@@ -1,8 +1,8 @@
 from PyQt6.QtWidgets import QDialog, QMessageBox, QTableWidgetItem, QFileDialog
 
 from PyQt6.QtWidgets import QDialog, QMessageBox
-from dino_game.data.leaderboard_manager import LeaderboardManager  # Quản lý bảng điểm
-from dino_game.GUI.saving_data2 import Ui_Dialog  # UI của PyQt6
+from dino_game.data.leaderboard_manager import LeaderboardManager
+from dino_game.GUI.saving_data2 import Ui_Dialog
 
 class DialogNhapTen(QDialog):
     def __init__(self, score):
@@ -10,12 +10,10 @@ class DialogNhapTen(QDialog):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.leaderboard_manager = LeaderboardManager()
-        self.score = score  # Lưu điểm số
+        self.score = score
 
-        # Hiển thị điểm số trong QLabel
         self.ui.label_score.setText(f"Score: {self.score}")
 
-        # Gán sự kiện cho nút Save
         self.ui.pushButton.clicked.connect(self.save)
 
     def save(self):
@@ -30,5 +28,5 @@ class DialogNhapTen(QDialog):
         else:
             self.leaderboard_manager.add_score(player_name, self.score)
             QMessageBox.information(self, "Thành công", "Lưu điểm thành công!")
-            self.accept()  # Đóng dialog
+            self.accept()
 
