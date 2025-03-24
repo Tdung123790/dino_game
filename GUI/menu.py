@@ -29,7 +29,6 @@ def menu(death_count=0, points=0):
             effects.draw_button(SCREEN, btn_3, "Quit Game", font, btn_3.collidepoint(pygame.mouse.get_pos()))
             effects.draw_button(SCREEN,btn_ldb,"Leaderboard", font,btn_ldb.collidepoint(pygame.mouse.get_pos()))
         else:
-            # Hiển thị thông báo thất bại
             text = font.render("You failed!", True, (0, 0, 0))
             score_text = font.render(f"Your Score: {points}", True, (0, 0, 0))
             SCREEN.blit(score_text,
@@ -43,7 +42,6 @@ def menu(death_count=0, points=0):
             effects.draw_button(SCREEN, btn_3, "Quit Game", font, btn_3.collidepoint(pygame.mouse.get_pos()))
             effects.draw_button(SCREEN, btn_save, "Save", font, btn_save.collidepoint(pygame.mouse.get_pos()))
 
-        # Khủng long xoay
         dino_rect = assets.running_skins[0][0].get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 3))
         rotated_dino = pygame.transform.rotate(assets.running_skins[0][0], effects.update_rotation())
         new_rect = rotated_dino.get_rect(center=dino_rect.center)
@@ -54,7 +52,6 @@ def menu(death_count=0, points=0):
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                # Nhấn ESCAPE thì quay lại menu ban đầu
                 menu(death_count=0, points=0)
                 return
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:

@@ -12,12 +12,12 @@ class SoundManager:
 
         self.hit_sound = pygame.mixer.Sound(os.path.join(SOUND_DIR, "dead_sound.wav"))
         self.score_sound = pygame.mixer.Sound(os.path.join(SOUND_DIR, "point_get_sound.wav"))
-        # Nhạc nền cho menu & game
+
         self.music_files = {
             "menu": f"{SOUND_DIR}/bg_music_menu.mp3",
             "game": f"{SOUND_DIR}/bg_music_game.mp3"
         }
-        self.current_music = None  # Lưu trạng thái nhạc hiện tại
+        self.current_music = None
 
     def play_jump(self):
         self.jump_sound.play()
@@ -31,18 +31,17 @@ class SoundManager:
     def play_music(self, music_type):
         """Phát nhạc nền dựa trên trạng thái menu hoặc game"""
         if music_type not in self.music_files:
-            return  # Nếu loại nhạc không hợp lệ thì không làm gì cả
+            return
 
         if self.current_music == self.music_files[music_type]:
-            return  # Không đổi nhạc nếu đang phát đúng loại nhạc
+            return
 
-        pygame.mixer.music.stop()  # Dừng nhạc hiện tại
+        pygame.mixer.music.stop()
         pygame.mixer.music.load(self.music_files[music_type])
-        pygame.mixer.music.set_volume(0.5)  # Điều chỉnh âm lượng (0.0 - 1.0)
-        pygame.mixer.music.play(-1)  # Lặp vô hạn
-        self.current_music = self.music_files[music_type]  # Cập nhật trạng thái nhạc
+        pygame.mixer.music.set_volume(0.5)
+        pygame.mixer.music.play(-1)
+        self.current_music = self.music_files[music_type]
 
     def stop_music(self):
-        """Dừng nhạc nền"""
         pygame.mixer.music.stop()
         self.current_music = None

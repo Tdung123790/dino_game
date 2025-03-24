@@ -1,6 +1,6 @@
 import random
 
-class Obstacle: # danh sach vat can
+class Obstacle:
     def __init__(self, image, type):
         self.image = image
         self.type = type
@@ -16,7 +16,6 @@ class Obstacle: # danh sach vat can
         SCREEN.blit(self.image[self.type], self.rect)
 
     def get_rect(self):
-        """Trả về hình chữ nhật va chạm"""
         return self.rect
 
 

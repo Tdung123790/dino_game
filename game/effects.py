@@ -37,8 +37,8 @@ class EffectManager:
 
     @staticmethod
     def draw_button(surface, rect, text, font, hover=False):
-        main_color = ORANGE if not hover else DARK_ORANGE  # Màu cam, sáng hơn khi chỉ chuột vào
-        border_color = BROWN  # Viền nâu
+        main_color = ORANGE if not hover else DARK_ORANGE
+        border_color = BROWN
 
 
         pygame.draw.rect(surface, border_color, (rect.x - 8, rect.y - 8, rect.width + 16, rect.height + 16))

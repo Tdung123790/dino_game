@@ -2,7 +2,7 @@
 
 import pygame
 
-# Khởi tạo pygame
+
 pygame.init()
 pygame.font.init()
 
