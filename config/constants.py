@@ -5,7 +5,7 @@ import pygame
 
 pygame.init()
 pygame.font.init()
-
+#hehe
 # Kích thước màn hình
 SCREEN_WIDTH = 1100
 SCREEN_HEIGHT = 600
