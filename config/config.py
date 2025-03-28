@@ -8,4 +8,6 @@ def install_dependencies():
     except subprocess.CalledProcessError:
         print("❌ Error installing dependencies.")
 
+
+
 install_dependencies()
